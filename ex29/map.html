@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Map</title>
+    </head>
+    <body style="margin:0;font-family:Arial,sans-serif">
+    <h3 style="margin:8px 10px;">Click a region to view a report</h3>
+
+    <img src="images/Map.jpg"
+        alt="US Map" usemap="#regions" width="400" height="300">
+
+    <map name="regions">
+        <area shape="rect" coords="120,90,240,189"
+            href="midwest.html" target="content" alt="Midwest">
+
+        <area shape="rect" coords="270,70,390,150"
+            href="northeast.html" target="content" alt="Northeast">
+
+        <area shape="rect" coords="140,190,260,290"
+            href="south.html" target="content" alt="South">
+
+        <area shape="rect" coords="10,15,110,230"
+            href="west.html" target="content" alt="West">
+    </map>
+    </body>
+</html>
