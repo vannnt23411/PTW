@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+    <meta charset="utf-8" />
+    <title>Register - Nguyễn Ngô Thảo Vân</title>
+    <style>
+        body{font-family:Segoe UI,Arial,sans-serif;background:#cfe3fb;margin:0}
+        form{background:#b8d3f6;padding:16px;border-radius:8px}
+        h1{text-align:center;margin:10px 0}
+        p{text-align:center;margin-top:-8px}
+        table{width:100%;border-collapse:separate;border-spacing:8px}
+        td:first-child{white-space:nowrap;color:#0a2a4a;font-weight:500}
+        input[type="text"], input[type="email"], input[type="date"], select, textarea{
+        width:100%; padding:6px 8px; background:#e9f1ff; border:1px solid #7fa8e0; border-radius:4px;
+        }
+        textarea{min-height:120px;resize:vertical}
+        .actions{display:flex;justify-content:center;gap:12px;margin-top:6px}
+        button{padding:8px 16px;border:2px solid #6c92d2;border-radius:6px;background:#d9e8ff;font-weight:600;cursor:pointer}
+    </style>
+    <script>
+        document.getElementById('myregister').addEventListener('submit', function (e) {
+        e.preventDefault(); 
+        const first = document.getElementById('firstname').value || 'Friend';
+        const product = document.getElementById('product').value;
+        alert('Registration successful!\nThank you, ' + first + '.\nProduct: ' + product);
+        });
+    </script>
+    </head>
+    <body>
+    <form name="myregister" id="myregister">
+        <div style="text-align:center;margin-bottom:6px">
+        <img src="images/Jackson.gif" alt="Jackson Electronics" />
+        </div>
+        <h1>Registration Form</h1>
+        <p>Register your Jackson Electronics product here</p>
+
+        <table>
+        <tr>
+            <td>First Name:</td>
+            <td><input type="text" name="firstname" id="firstname" required /></td>
+            <td>Last Name:</td>
+            <td><input type="text" name="lastname" id="lastname" required /></td>
+        </tr>
+
+        <tr>
+            <td>Address #1:</td>
+            <td colspan="3"><input type="text" name="address1" id="address1" /></td>
+        </tr>
+
+        <tr>
+            <td>Address #2:</td>
+            <td colspan="3"><input type="text" name="address2" id="address2" /></td>
+        </tr>
+
+        <tr>
+            <td>City:</td>
+            <td><input type="text" name="city" id="city" /></td>
+            <td>State:</td>
+            <td><input type="text" name="state" id="state" /></td>
+            <td>Zip:</td>
+            <td><input type="text" name="zip" id="zip" /></td>
+        </tr>
+
+        <tr>
+            <td>Country:</td>
+            <td>
+            <select name="country" id="country">
+                <option>United States</option>
+                <option>Canada</option>
+                <option>United Kingdom</option>
+                <option>Australia</option>
+                <option selected>Viet Nam</option>
+                <option>Other</option>
+            </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Product:</td>
+            <td>
+            <select name="product" id="product">
+                <option value="ScanMaster">ScanMaster</option>
+                <option value="PhotoPlus">PhotoPlus</option>
+                <option value="SoundWave">SoundWave</option>
+            </select>
+            </td>
+            <td>Date Purchased:</td>
+            <td><input type="date" name="datepurchase" id="datepurchase" /></td>
+        </tr>
+
+        <tr>
+            <td>Serial #:</td>
+            <td colspan="3"><input type="text" name="serial" id="serial" /></td>
+        </tr>
+
+        <tr>
+            <td>Used for:</td>
+            <td><label><input type="radio" name="usedfor" value="Home"> Home</label></td>
+            <td><label><input type="radio" name="usedfor" value="Educational Institution"> Educational Institution</label></td>
+            <td><label><input type="radio" name="usedfor" value="Government"> Government</label></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td><label><input type="radio" name="usedfor" value="Business"> Business</label></td>
+            <td><label><input type="radio" name="usedfor" value="Other"> Other</label></td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>System (check all that apply):</td>
+            <td><label><input type="checkbox" name="system[]" value="Windows"> Windows</label></td>
+            <td><label><input type="checkbox" name="system[]" value="UNIX"> UNIX</label></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td><label><input type="checkbox" name="system[]" value="Macintosh"> Macintosh</label></td>
+            <td><label><input type="checkbox" name="system[]" value="Other"> Other</label></td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>Comments?</td>
+            <td colspan="3"><textarea name="comments" id="comments" placeholder="Nhập ghi chú..."></textarea></td>
+        </tr>
+        </table>
+
+        <div class="actions">
+        <button type="submit">Click to register</button>
+        <button type="reset">Click to cancel</button>
+        </div>
+    </form>
+
+    
+    </body>
+</html>
