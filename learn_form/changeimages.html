@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Change images - Thao Van</title>
+        <script>
+            function hide_image(){
+                avatar=document.getElementById("avatar").style="display:none";
+            }
+            function show_image(){
+                document.getElementById("avatar").style="display:block"
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            <input type="radio" name="myimage" id="im1" onchange="show_image()"/>
+            <label for="img1">Show Image</label>
+            <br/>
+            <input type="radio" name="myimage" id="im2" onchange="hide_image()"/>
+            <label for="img2">Hide Image</label>
+            <br/>
+            <img src="images/Taylor.jpg" name="avatar" id="avatar" style="display:block;"/>
+            <br/>
+        </form>
+    </body>
+</html>
