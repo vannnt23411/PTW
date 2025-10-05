@@ -1,0 +1,130 @@
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <title>Online Classifieds - Nguyễn Ngô Thảo Vân</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+        <style>
+            :root{
+            --mint:#d9fbf2; --panel:#c6f3ea; --border:#4aa7a2;
+            --headline:#c72a2a; --text:#0d3b3a;
+            }
+            *{box-sizing:border-box}
+            body{margin:0; font-family:Segoe UI,Arial,sans-serif; background:#b9efe6}
+            .wrap{max-width:720px; margin:28px auto; background:var(--mint);
+            border:3px solid var(--border); border-radius:8px; padding:16px 18px;}
+            h1{color:var(--headline); margin:0 0 10px; font-size:26px}
+            hr{border:none; border-top:2px solid #8fd3cf; margin:6px 0 14px}
+            form{background:var(--panel); border:2px solid #89cfc8; border-radius:8px; padding:14px}
+            .q{margin:10px 0 12px}
+            .q strong{display:block; margin-bottom:8px; color:var(--text)}
+            .options{display:flex; flex-wrap:wrap; gap:8px 22px; padding-left:6px}
+            label{white-space:nowrap}
+            input[type="text"], input[type="date"]{padding:6px 8px; border:1px solid #84c9c3;
+            border-radius:4px; background:#f4ffff}
+            .dates{display:flex; align-items:center; gap:8px; padding-left:6px}
+            .keywords{width:100%; padding-left:6px}
+            .keywords input{width:100%}
+            .actions{display:flex; gap:22px; padding-left:6px; margin-top:6px}
+            .action{
+            display:flex; align-items:center; gap:8px; cursor:pointer; user-select:none;
+            border:none; background:transparent; font-weight:600; font-size:15px;
+            }
+            .action .ico{font-size:22px; line-height:1}
+            .search .ico{color:#10a54a}
+            .help .ico{color:#0b73d2}
+            .cancel .ico{color:#d8183a}
+        </style>
+        <script>
+            document.getElementById('clsForm').addEventListener('submit', function(e){
+            e.preventDefault();
+            const section = (new FormData(this)).get('section');
+
+            const pubs = [];
+            this.querySelectorAll('input[name="pubs"]:checked').forEach(cb => pubs.push(cb.value));
+            const from = this.querySelector('input[name="from"]').value || '—';
+            const to   = this.querySelector('input[name="to"]').value || '—';
+            const kw   = this.querySelector('input[name="keywords"]').value || '(none)';
+
+            alert(
+                'Search simulation\n' +
+                'Section: ' + section + '\n' +
+                'Publications: ' + (pubs.length ? pubs.join(', ') : '(none)') + '\n' +
+                'Date: ' + from + ' → ' + to + '\n' +
+                'Keywords: ' + kw
+            );
+            });
+
+            document.getElementById('helpBtn').addEventListener('click', function(){
+            fetch('help.html', {method:'HEAD'})
+                .then(r => {
+                if (r.ok) window.location.href = 'help.html';
+                else throw new Error();
+                })
+                .catch(() => alert('Help: Nhập Section, chọn Publications, điền khoảng ngày và từ khóa rồi bấm Search. (Bạn có thể tạo file help.html để mở trang trợ giúp riêng.)'));
+            });
+        </script>
+    </head>
+    <body>
+    <div class="wrap">
+        <h1>Online Classifieds Search Form</h1>
+        <hr>
+
+        <form id="clsForm">
+        <div class="q">
+            <strong>1) Search for a classified in the following sections:</strong>
+            <div class="options">
+            <label><input type="radio" name="section" value="Employment" checked> Employment</label>
+            <label><input type="radio" name="section" value="For Sale"> For Sale</label>
+            <label><input type="radio" name="section" value="Housing"> Housing</label>
+            <label><input type="radio" name="section" value="Personal"> Personal</label>
+            <label><input type="radio" name="section" value="Miscellaneous"> Miscellaneous</label>
+            <label><input type="radio" name="section" value="All of the above"> All of the above</label>
+            </div>
+        </div>
+
+        <div class="q">
+            <strong>2) Search the following publications:</strong>
+            <div class="options">
+            <label><input type="checkbox" name="pubs" value="Midwest Times" checked> Midwest times</label>
+            <label><input type="checkbox" name="pubs" value="Great Lakes Classifieds" checked> Great Lakes Classifieds</label>
+            <label><input type="checkbox" name="pubs" value="Modern News"> Modern News</label>
+            <label><input type="checkbox" name="pubs" value="Middleton Daily"> Middleton Daily</label>
+            <label><input type="checkbox" name="pubs" value="Employment Today"> Employment Today</label>
+            <label><input type="checkbox" name="pubs" value="Cashtown Daily News"> Cashtown Daily News</label>
+            </div>
+        </div>
+
+        <div class="q">
+            <strong>3) From to</strong>
+            <div class="dates">
+            <input type="date" name="from" aria-label="from date">
+            <span>to</span>
+            <input type="date" name="to" aria-label="to date">
+            </div>
+        </div>
+
+        <div class="q">
+            <strong>4) Enter a few keywords to describe the classified.</strong>
+            <div class="keywords">
+            <input type="text" name="keywords" placeholder="ví dụ: data analyst, part-time, remote">
+            </div>
+        </div>
+
+        <div class="q">
+            <strong>5) Click one of the options below:</strong>
+            <div class="actions">
+            <button type="submit" class="action search">
+                <span class="ico">✔</span> <span>Search</span>
+            </button>
+            <button type="button" class="action help" id="helpBtn">
+                <span class="ico">?</span> <span>Help</span>
+            </button>
+            <button type="reset" class="action cancel">
+                <span class="ico">✖</span> <span>Cancel</span>
+            </button>
+            </div>
+        </div>
+        </form>
+    </div>
+    </body>
+</html>
