@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Tiêu đề trang</title>
+    </head>
+    <body>
+        <form name="myform">
+            <p>Name: <input type="text" name="fullname" id="fullname"/></p>
+            <p>Degrees:</p>
+            <input type="checkbox" name="bc1" id="bc1"/>
+            <label for="bc1">Bằng 1</label>
+            <br/>
+            <input type="checkbox" name="bc2" id="bc2"/>
+            <label for="bc2">Bằng 2</label>
+            <br/>
+            <p>Type of Customer:</p>
+            <input type="radio" name="ct" id="ct1"/>
+            <label for="ct1">VIP Customer</label>
+            <br/>
+            <input type="radio" name="ct" id="ct2"/>
+            <label for="ct2">hihi Customer</label>
+            <br/>
+            <p>Gender:</p>
+            <input type="radio" name="gender" id="gender_man"/>
+            <label for="gender_man">Male</label>
+            <br/>
+            <input type="radio" name="gender" id="gender_woman"/>
+            <label for="gender_woman">Female</label>
+            <br/>
+            <input type="radio" name="gender" id="gender_other"/>
+            <label for="gender_other">Others</label>
+            <br/>
+            <p>City:</p>
+            <select name="city" id="city">
+                <option>Hồ Chí Minh</option>
+                <option style="background-color: aquamarine;">Hà Nội</option>
+                <option>Đà Nẵng</option>
+            </select>
+            <p>References:</p>
+            <select name="ref" id="ref" multiple size="5">
+                <option value="1">Google</option>
+                <option value="200">Facebook</option>
+                <option>Instagram</option>
+                <option>Youtube</option>
+                <option>Hóng chuyện từ hàng xóm</option>
+            </select>
+        </form>
+    </body>
+</html>
