@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>Nguyen Ngo Thao Van</title>
+        <script>
+            function change_color(value)
+            {
+                document.getElementById("div_color").style="width:100%; height:100px; background-color:"+value
+                div_color.setAttribute("style","width:100%; height:100px; background-color:"+value)
+            }
+            function change_image(value)
+            {
+                avatar=document.getElementById("avatar")
+                avatar.setAttribute("src","images/"+value)
+            }
+        </script>
+    </head>
+    <body>
+        <form name="frm_color">      
+            <select name="combo_color" onchange="change_color(this.value)">
+                <option value="blue">Xanh le</option>
+                <option value="red">Do le</option>
+                <option value="yellow">Vang khe</option>
+
+            </select>
+            <div id="div_color" style="width:100%; height:100px; background-color:pink">
+
+            </div>
+        </form>
+        <form name="frm_img">
+            <select name="combo_img" onchange="change_image(this.value)">
+                <option value="images/Cassini.jpg">Cassini</option>
+                <option value="Glogo.jpg">GLogo</option>
+                <option value="Oneil.jpg">Oneil</option>
+                <option value="Jackson.gif">Jackson</option>
+            </select>
+            <br/>
+            <img id="avatar" src="images/Cassini.jpg"/>
+        </form>
+    </body>
+</html>

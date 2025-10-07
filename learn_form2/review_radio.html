@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Nguyễn Ngô Thảo Vân</title>
+        <script>
+            function show_img(){
+                //step 1: get image object by id avatar
+                img=document.getElementById("avatar");
+                //setp 2: set attribute src of image object
+                img.setAttribute("style","display:block");
+            }
+            function hide_img(){
+                //step 1: get image object by id avatar
+                img=document.getElementById("avatar");
+                //setp 2: set attribute src of image object
+                img.setAttribute("style","display:none");
+            }
+        </script>
+    </head>
+    <body>
+        <form name="myform">
+            <input type="radio" name="myimage" id="img1" onchange="show_img()"/>
+            <label for="img1">Show Image</label>
+            <br/>
+            <input type="radio" name="myimage" id="img2" onchange="hide_img()"/>
+            <label for="img2">Hide Image</label>
+            <br/>
+            <img src="images/Cassini.jpg" id="avatar" name="avatar" width="250" height="300"/>
+        </form>
+    </body>
+</html>
