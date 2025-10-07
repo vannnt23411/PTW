@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Product List - Nguyễn Ngô Thảo Vân</title>
+  <style>
+    table { border-collapse: collapse; width: 70%; }
+    th, td { border: 1px solid #999; padding: 8px; text-align: center; }
+    th { background-color: #f2f2f2; }
+    input[type="text"] { width: 80px; text-align: center; }
+    .btn {
+      background-color: orange; color: black; font-weight: bold;
+      padding: 5px 15px; border: none; cursor: pointer;
+    }
+  </style>
+  <script>
+    function calculateTotals() {
+      const price1 = parseFloat(document.getElementById("price1").value) || 0;
+      const qty1 = parseInt(document.getElementById("qty1").value) || 0;
+
+      const price2 = parseFloat(document.getElementById("price2").value) || 0;
+      const qty2 = parseInt(document.getElementById("qty2").value) || 0;
+
+      const price3 = parseFloat(document.getElementById("price3").value) || 0;
+      const qty3 = parseInt(document.getElementById("qty3").value) || 0;
+
+      const total1 = price1 * qty1;
+      const total2 = price2 * qty2;
+      const total3 = price3 * qty3;
+
+      document.getElementById("total1").value = total1 ? total1.toFixed(2) : "";
+      document.getElementById("total2").value = total2 ? total2.toFixed(2) : "";
+      document.getElementById("total3").value = total3 ? total3.toFixed(2) : "";
+
+      const sum = total1 + total2 + total3;
+      document.getElementById("sum").value = sum ? sum.toFixed(2) : "";
+    }
+  </script>
+</head>
+<body>
+  <h2>List of Products</h2>
+
+  <form action="sum.html" method="get">
+    <table>
+      <tr>
+        <th>Part Number</th>
+        <th>Description</th>
+        <th>Price ($)</th>
+        <th>Qty</th>
+        <th>Item total ($)</th>
+      </tr>
+
+      <tr>
+        <td>C112</td>
+        <td>Mouse</td>
+        <td><input type="text" id="price1" name="price1" value="19.95" readonly style="border:0"></td>
+        <td><input type="text" id="qty1" name="qty1" oninput="calculateTotals()"></td>
+        <td><input type="text" id="total1" name="total1" readonly></td>
+      </tr>
+
+      <tr>
+        <td>B124</td>
+        <td>Keyboard US</td>
+        <td><input type="text" id="price2" name="price2" value="29.95" readonly style="border:0"></td>
+        <td><input type="text" id="qty2" name="qty2" oninput="calculateTotals()"></td>
+        <td><input type="text" id="total2" name="total2" readonly></td>
+      </tr>
+
+      <tr>
+        <td>U125</td>
+        <td>USB KingMax</td>
+        <td><input type="text" id="price3" name="price3" value="39.95" readonly style="border:0"></td>
+        <td><input type="text" id="qty3" name="qty3" oninput="calculateTotals()"></td>
+        <td><input type="text" id="total3" name="total3" readonly></td>
+      </tr>
+    </table>
+
+    <br>
+    <label><b>Total:</b></label>
+    <input type="text" id="sum" name="sum" readonly>
+    <button type="submit" class="btn">Sum</button>
+  </form>
+</body>
+</html>

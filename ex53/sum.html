@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Sum Result - Nguyễn Ngô Thảo Vân</title>
+  <style>
+    table { border-collapse: collapse; width: 60%; margin-top: 20px; }
+    th, td { border: 1px solid #999; padding: 8px; text-align: center; }
+    th { background-color: #f2f2f2; }
+  </style>
+  <script>
+    window.onload = function() {
+      const params = new URLSearchParams(window.location.search);
+
+      const price1 = parseFloat(params.get("price1")) || 0;
+      const qty1 = parseInt(params.get("qty1")) || 0;
+      const total1 = price1 * qty1;
+
+      const price2 = parseFloat(params.get("price2")) || 0;
+      const qty2 = parseInt(params.get("qty2")) || 0;
+      const total2 = price2 * qty2;
+
+      const price3 = parseFloat(params.get("price3")) || 0;
+      const qty3 = parseInt(params.get("qty3")) || 0;
+      const total3 = price3 * qty3;
+
+      const grandTotal = total1 + total2 + total3;
+
+      const tableHTML = `
+        <table>
+          <tr><th>Part</th><th>Price</th><th>Qty</th><th>Total</th></tr>
+          <tr><td>C112</td><td>${price1.toFixed(2)}$</td><td>${qty1}</td><td>${total1.toFixed(2)}$</td></tr>
+          <tr><td>B124</td><td>${price2.toFixed(2)}$</td><td>${qty2}</td><td>${total2.toFixed(2)}$</td></tr>
+          <tr><td>U125</td><td>${price3.toFixed(2)}$</td><td>${qty3}</td><td>${total3.toFixed(2)}$</td></tr>
+          <tr><th colspan="3">Grand Total</th><th>${grandTotal.toFixed(2)}$</th></tr>
+        </table>
+      `;
+
+      document.getElementById("result").innerHTML = tableHTML;
+    };
+  </script>
+</head>
+<body>
+  <h2>Sum Result</h2>
+  <div id="result"></div>
+</body>
+</html>
