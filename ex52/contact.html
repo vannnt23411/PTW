@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Ex 52 - Nguyễn Ngô Thảo Vân</title>
+        <script>
+            function send()
+            {
+                alert("Gửi thành công!");
+                document.getElementById("myForm").submit();
+            }
+            function updateAction() {
+            const receiver = document.getElementById("sendTo").value;
+            const form = document.getElementById("myForm");
+
+                switch (receiver) {
+                case "editorial":
+                form.action = "editorial.html";
+                break;
+                case "news":
+                form.action = "news.html";
+                break;
+                case "board":
+                form.action = "board.html";
+                break;
+                case "world":
+                form.action = "world.html";
+                break;
+                case "business":
+                form.action = "business.html";
+                break;
+                default:
+                form.action = "editorial.html"; 
+            }
+        }
+        </script>
+    </head>
+    <body>
+        <h1>Contact the editorial ofice</h1>
+        <form id="myForm" name="myForm" action="editorial.html" method="get" onsubmit="updateAction()">
+            <table>
+                <tr>
+                    <td>Full name</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" name="fullname" id="fullname" style="width:400px; height:30px"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td style="text-align: center">Send to</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="email" name="email" id="email" style="width:400px; height:30px"/>
+                    </td>
+                    <td>
+                        <select name="sendTo" id="sendTo" style="width:400px; height:30px; text-align: center;" >
+                            <option value="editorial">Editorial Board</option>
+                            <option value="news">News Department</option>
+                            <option value="board">Board of Perspectives</option>
+                            <option value="world">World Board</option>
+                            <option value="business">Business Department</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Title</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" name="title" id="title" style="width:400px; height:30px"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Content</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" name="content" id="content" style="height:200px; width:400px"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <button type="submit" id="send" name="send" onclick="send()" style="color:white; background-color: rgb(129, 8, 46); width:100px; height:30px">Send</button>
+    </body>
+</html>

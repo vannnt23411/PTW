@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>News Department - Nguyễn Ngô Thảo Vân</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; }
+    table { border-collapse: collapse; width: 70%; }
+    th, td { border: 1px solid #aaa; padding: 10px; text-align: left; }
+    th { background-color: #f2f2f2; }
+  </style>
+  <script>
+    window.onload = function() {
+      const params = new URLSearchParams(window.location.search);
+      const fullname = params.get("fullname");
+      const email = params.get("email");
+      const sendTo = params.get("sendTo");
+      const title = params.get("title");
+      const content = params.get("content");
+
+      if (fullname || email || title || content) {
+        const tableHTML = `
+          <table>
+            <caption>Submitted Information</caption>
+            <tr><th>Full Name</th><td>${fullname}</td></tr>
+            <tr><th>Email</th><td>${email}</td></tr>
+            <tr><th>Send To</th><td>${sendTo}</td></tr>
+            <tr><th>Title</th><td>${title}</td></tr>
+            <tr><th>Content</th><td>${content}</td></tr>
+          </table>`;
+        document.getElementById("result").innerHTML = tableHTML;
+      } else {
+        document.getElementById("result").innerHTML = "<p>No data received.</p>";
+      }
+    };
+  </script>
+</head>
+<body>
+  <h1 style="text-align:center;">helo</h1>
+  <div id="result" style="margin-top:30px;"></div>
+</body>
+</html>
