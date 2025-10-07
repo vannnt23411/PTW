@@ -1,0 +1,109 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Ex51 - Nguyễn Ngô Thảo Vân</title>
+        <style>
+            body{
+                background-color: #84dfdf;
+                color:white
+
+            }
+            h1{
+                text-align: center;
+                color:white
+            }
+            .btn {color:#111; cursor:pointer;
+                text-align: center;
+                margin: 20px;
+            }
+            .img{
+                display: block;
+                text-align: center;
+            }
+            .page {
+            max-width: 860px; margin: 24px auto 60px; padding: 24px;
+            background: transparent;
+            background-color: #006d6d;
+            }
+        </style>
+        <script>
+            function register()
+            {
+                alert("Đăng ký thành công!");
+                document.getElementById("myForm").reset();
+            }
+        </script>
+    </head>
+    <body>
+        <div class="page">
+        <div class="img">
+            <img src="images/Logo.gif">
+        </div>
+        <h1>Newborn Registration</h1>
+        <form id="myForm" name="myForm">
+            <table>
+                <tr>
+                    <td>Date</td>
+                    <td><input type="text" name="date" id="date" placeholder="mm/dd/yy"/></td>
+                </tr>
+                <tr>
+                    <td>1) Infant's first name:</td>
+                    <td><input type="text" name="infant_first" id="infant_first" /></td>
+                    <td>Last:</td>
+                    <td>
+                        <input type="text" name="infant_last" id="infant_last" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>2) Medical Record #:</td>
+                    <td><input type="text" name="medical_record" id="medical_record" /></td>
+                </tr>
+                <tr>
+                    <td>3) Date of birth:</td>
+                    <td>
+                        <input type="text" name="dob" id="dob" placeholder="mm/dd/yy"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4) Birth weight:</td>
+                    <td><input type="text" name="birth_weight" id="birth_weight" /></td>
+                </tr>
+                <tr>
+                    <td>5) APGAR score:</td>
+                    <td><input type="text" name="apgar_score" id="apgar_score" /></td>
+                </tr>
+                <tr>
+                    <td>6) Mother's first name:</td>
+                    <td><input type="text" name="mother_first" id="mother_first" /></td>
+                    <td>Last:</td>
+                    <td>
+                        <input type="text" name="mother_last" id="mother_last" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>7) Father's first name:</td>
+                    <td><input type="text" name="father_first" id="father_first" /></td>
+                    <td>Last:</td>
+                    <td>
+                        <input type="text" name="father_last" id="father_last" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>8) Physician (check all that apply)
+                    </td>
+                    <td>
+                        <select id="physicians" name="physicians" multiple>
+                            <option value="dr_warren">Dr. Warren Albert</option>
+                            <option value="dr_maria">Dr. Maria Alvarez</option>
+                            <option value="dr_karen">Dr. Karen Brinkman</option>
+                            <option value="dr_micheal">Dr. Micheal Kerry</option>
+                    </td>
+            </table>
+            <div class="btn">
+                <button type="button" onclick="register()">Register</button>
+                <button type="reset">Cancel</button>
+            </div>
+        </form>
+    </div>
+    </body>
+</html>
