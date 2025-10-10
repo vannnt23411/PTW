@@ -1,0 +1,109 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Quadratic Equation - Nguyễn Ngô Thảo Vân</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      margin: 20px auto;
+      font-family: Arial, sans-serif;
+    }
+    caption {
+      background-color: #d4f0d2;
+      text-align: center;
+      font-weight: bold;
+      font-size: 18px;
+      padding: 6px;
+    }
+    td {
+      padding: 6px;
+    }
+    input {
+      width: 250px; 
+      height: 25px;
+      font-size: 15px;
+    }
+    #result {
+      color: red;
+      font-weight: bold;
+      width: 250px;
+    }
+    button {
+      padding: 5px 15px;
+      margin-right: 5px;
+      border-radius: 5px;
+      border: 1px solid orange;
+      background-color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #fef5e6;
+    }
+  </style>
+
+  <script>
+    function solution() {
+      const a = parseFloat(document.getElementById("a").value);
+      const b = parseFloat(document.getElementById("b").value);
+      const c = parseFloat(document.getElementById("c").value);
+      const result = document.getElementById("result");
+
+      if (isNaN(a) || isNaN(b) || isNaN(c)) {
+        alert("Vui lòng nhập số hợp lệ cho a, b, c!");
+        result.value = "";
+        return;
+      }
+      if (a === 0) {
+        alert("a phải khác 0 (nếu a = 0 thì không còn là phương trình bậc hai)!");
+        result.value = "";
+        return;
+      }
+
+      const delta = b*b - 4*a*c;
+      let x1, x2;
+
+      if (delta > 0) {
+        x1 = (-b + Math.sqrt(delta)) / (2*a);
+        x2 = (-b - Math.sqrt(delta)) / (2*a);
+        result.value = `x1=${x1.toFixed(2)} ; x2=${x2.toFixed(2)}`;
+      } else if (delta === 0) {
+        x1 = -b / (2*a);
+        result.value = `x1=x2=${x1.toFixed(2)}`;
+      } else {
+        result.value = "Phương trình vô nghiệm thực";
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <form id="myform">
+    <table border="1">
+      <caption>The quadratic equation</caption>
+      <tr>
+        <td>a:</td>
+        <td><input type="number" id="a" name="a"></td>
+      </tr>
+      <tr>
+        <td>b:</td>
+        <td><input type="number" id="b" name="b"></td>
+      </tr>
+      <tr>
+        <td>c:</td>
+        <td><input type="number" id="c" name="c"></td>
+      </tr>
+      <tr>
+        <td>Result:</td>
+        <td><input type="text" id="result" name="result" readonly></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <button type="button" onclick="solution()">Find solution</button>
+          <button type="reset">Clear</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>
