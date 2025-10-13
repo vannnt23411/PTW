@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Nguyễn Ngô Thảo Vân</title>
+        <script>
+            function process_optimization() {
+                input = document.getElementById("name_input").value;
+                output = input.replace(/\b\w/g, c => c.toUpperCase());
+                document.getElementById("name_output").innerText = output;
+            }
+        </script>
+    </head>
+    <body>
+        <form name="my_form">
+            <table>
+                <tr>
+                    <td>Input:</td>
+                    <td>
+                        <input type="text" name="name_input" id="name_input" oninput="process_optimization()"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    Output:
+                    </td>
+                    <td id="name_output">
+                    </td>
+                </tr>
+                <tr>
+
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
